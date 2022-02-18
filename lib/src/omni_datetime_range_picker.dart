@@ -36,6 +36,7 @@ class OmniDateTimeRangePicker extends StatefulWidget {
   final DateTime? endLastDate;
 
   final bool? is24HourMode;
+  final bool? isDateOnlyMode;
   final bool? isShowSeconds;
 
   final Color? primaryColor;
@@ -57,6 +58,7 @@ class OmniDateTimeRangePicker extends StatefulWidget {
     this.endFirstDate,
     this.endLastDate,
     this.is24HourMode,
+    this.isDateOnlyMode,
     this.isShowSeconds,
     this.primaryColor,
     this.backgroundColor,
@@ -94,15 +96,6 @@ class _OmniDateTimeRangePickerState extends State<OmniDateTimeRangePicker>
     _tabController.addListener(() {
       setState(() {});
     });
-
-    if (widget.startInitialDate != null) {
-      startDateTime = widget.startInitialDate!;
-    }
-
-    if (widget.endInitialDate != null) {
-      endDateTime = widget.endInitialDate!;
-    }
-
     super.initState();
   }
 
@@ -217,7 +210,6 @@ class _OmniDateTimeRangePickerState extends State<OmniDateTimeRangePicker>
                                   fontSize: 24,
                                   color:
                                       widget.calendarTextColor ?? Colors.black),
-                          time: startDateTime,
                           onTimeChange: (dateTime) {
                             DateTime tempStartDateTime = DateTime(
                               startDateTime.year,
@@ -270,7 +262,6 @@ class _OmniDateTimeRangePickerState extends State<OmniDateTimeRangePicker>
                                   fontSize: 24,
                                   color:
                                       widget.calendarTextColor ?? Colors.black),
-                          time: endDateTime,
                           onTimeChange: (dateTime) {
                             DateTime tempEndDateTime = DateTime(
                               endDateTime.year,
