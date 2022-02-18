@@ -21,6 +21,7 @@ class OmniDateTimePicker extends StatefulWidget {
   final DateTime? startLastDate;
 
   final bool? is24HourMode;
+  final bool? isDateOnlyMode;
   final bool? isShowSeconds;
 
   final Color? primaryColor;
@@ -39,6 +40,7 @@ class OmniDateTimePicker extends StatefulWidget {
     this.startFirstDate,
     this.startLastDate,
     this.is24HourMode,
+    this.isDateOnlyMode,
     this.isShowSeconds,
     this.primaryColor,
     this.backgroundColor,
@@ -63,16 +65,8 @@ class _OmniDateTimePickerState extends State<OmniDateTimePicker>
   DateTime startDateTime = DateTime.now();
 
   @override
-  void initState() {
-    if (widget.startInitialDate != null) {
-      startDateTime = widget.startInitialDate!;
-    }
-
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
+
     return Dialog(
       backgroundColor: Colors.transparent,
       alignment: Alignment.center,
@@ -113,6 +107,9 @@ class _OmniDateTimePickerState extends State<OmniDateTimePicker>
                       );
                     },
                   ),
+                  (widget.isDateOnlyMode ?? false) ?
+                  SizedBox()
+                  :
                   Padding(
                     padding: const EdgeInsets.only(bottom: 48.0),
                     child: TimePickerSpinner(
@@ -122,13 +119,12 @@ class _OmniDateTimePickerState extends State<OmniDateTimePicker>
                           TextStyle(
                               fontSize: 18,
                               color:
-                                  widget.calendarTextColor ?? Colors.black54),
+                              widget.calendarTextColor ?? Colors.black54),
                       highlightedTextStyle: widget
-                              .timeSpinnerHighlightedTextStyle ??
+                          .timeSpinnerHighlightedTextStyle ??
                           TextStyle(
                               fontSize: 24,
                               color: widget.calendarTextColor ?? Colors.black),
-                      time: startDateTime,
                       onTimeChange: (dateTime) {
                         DateTime tempStartDateTime = DateTime(
                           startDateTime.year,
@@ -142,7 +138,11 @@ class _OmniDateTimePickerState extends State<OmniDateTimePicker>
                         startDateTime = tempStartDateTime;
                       },
                     ),
-                  ),
+                  )
+                  ,
+
+
+
                 ],
               ),
             ),
@@ -187,6 +187,7 @@ class _OmniDateTimePickerState extends State<OmniDateTimePicker>
                             MaterialStateProperty.all(widget.backgroundColor),
                       ),
                       onPressed: () {
+                        print(startDateTime);
                         Navigator.pop<DateTime>(
                           context,
                           startDateTime,
