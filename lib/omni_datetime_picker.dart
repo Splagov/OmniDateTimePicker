@@ -24,6 +24,7 @@ Future<DateTime?> showOmniDateTimePicker({
   DateTime? endFirstDate,
   DateTime? endLastDate,
   bool? is24HourMode,
+  bool? isDateOnlyMode,
   bool? isShowSeconds,
   Color? primaryColor,
   Color? backgroundColor,
@@ -35,7 +36,9 @@ Future<DateTime?> showOmniDateTimePicker({
   TextStyle? timeSpinnerHighlightedTextStyle,
   Radius? borderRadius,
 }) {
+
   return showDialog(
+
     context: context,
     builder: (BuildContext context) {
       return OmniDateTimePicker(
@@ -43,6 +46,7 @@ Future<DateTime?> showOmniDateTimePicker({
         startFirstDate: startFirstDate,
         startLastDate: startLastDate,
         is24HourMode: is24HourMode,
+        isDateOnlyMode: isDateOnlyMode,
         isShowSeconds: isShowSeconds,
         primaryColor: primaryColor,
         backgroundColor: backgroundColor,
@@ -71,6 +75,7 @@ Future<List<DateTime>?> showOmniDateTimeRangePicker({
   DateTime? endFirstDate,
   DateTime? endLastDate,
   bool? is24HourMode,
+  bool? isDateOnlyMode,
   bool? isShowSeconds,
   Color? primaryColor,
   Color? backgroundColor,
@@ -93,6 +98,7 @@ Future<List<DateTime>?> showOmniDateTimeRangePicker({
         endFirstDate: endFirstDate,
         endLastDate: endLastDate,
         is24HourMode: is24HourMode,
+        isDateOnlyMode: isDateOnlyMode,
         isShowSeconds: isShowSeconds,
         primaryColor: primaryColor,
         backgroundColor: backgroundColor,
