@@ -25,10 +25,15 @@ A DateTime picker that lets user select a date and the time, with start & end as
 
 Add this to your package's pubspec.yaml file and run `flutter pub get`:
 
-```yaml
-dependencies:
-  omni_datetime_picker: ^0.0.4+1
+
+
+```omni_datetime_picker:
+    git:
+      url: https://github.com/Splagov/OmniDateTimePicker.git
+      ref: 1abaa558595f3b0e4601a85fe8ff318a0dc5c6f3
 ```
+1abaa558595f3b0e4601a85fe8ff318a0dc5c6f3 - the latest commit. Can be changed.
+
 Now in your Dart code, you can use:
 
 ```dart
