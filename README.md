@@ -27,7 +27,8 @@ Add this to your package's pubspec.yaml file and run `flutter pub get`:
 
 
 
-```omni_datetime_picker:
+```
+omni_datetime_picker:
     git:
       url: https://github.com/Splagov/OmniDateTimePicker.git
       ref: 1abaa558595f3b0e4601a85fe8ff318a0dc5c6f3
